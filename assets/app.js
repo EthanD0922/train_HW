@@ -49,4 +49,26 @@ database.ref().on("child_added",function(childSnapshot){
     var name = childSnapshot.val().name
     var start = childSnapshot.val().start
     var frequency = childSnapshot.val().frequency
-})
+
+    var firstRunTime = moment(start, "hh:mm").subtract(1, "years")
+
+    var difference = moment().diff(moment(firstRunTime), "minutes")
+
+    var remainder = difference % frequency
+
+    var minutesUntillNext = frequency - remainder
+
+    var nextTrain = moment().add(minutesUntillNext, "minutes")
+
+    
+    var newCarriage = $("<tr>").append(
+        $("<td>").text(destinaton),
+        $("<td>").text(name),
+        $("<td>").text(frequency),
+        $("<td>").text(moment(nextTrain).format("hh:mm")),
+        $("<td>").text(minutesUntillNext),
+    )
+
+    $("#coreTable > tbody").append(newCarriage)
+
+})  
