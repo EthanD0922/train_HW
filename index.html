@@ -21,6 +21,48 @@
 </head>
 
 <body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Rivercrest's Flying Magical Carriage Schedule</h1>
+            <p class="lead">Welcome to the Rivercrest Flying Magic Carriage Station.</p>
+            <p>Here at RFMCS we've perfected the art of traversing Aelmoor within hours.
+            </p>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead class=thead-light>
+            <tr>
+                <th scope="col">Carriage Destination</th>
+                <th scope="col">Carriage Name</th>
+                <th scope="col">Frquency of Arival (minutes)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <form>
+        <div class="form-group">
+            <label for="destinationText">Carriage Destination</label>
+            <input class="form-control" type="text" placeholder="Destination" id="destinationText">
+        </div>
+        <div class="form-group">
+            <label for="nameText">Carriage's Name</label>
+            <input class="form-control" type="text" placeholder="Name" id="nameText">
+        </div>
+        <div class="form-group">
+            <label for="firstCarriageText">First Carriage Time (HH:mm - military time)</label>
+            <input class="form-control" type="text" placeholder="00:00" id="firstCarriageText">
+        </div>
+        <div class="form-group">
+            <label for="minutesText">Frequency in Minutes</label>
+            <input class="form-control" type="text" placeholder="Minutes" id="minutesText">
+        </div>
+    </form>
     
   <!-- Script -->
   <script src="/assets/app.js"></script>
