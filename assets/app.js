@@ -26,7 +26,7 @@ var newCarriage = {
     destinaton: rfmcsDestination ,
     name: rfmcsName, 
     start: rfmcsStart, 
-    frequency: rfmcsFrequency, 
+    frequency: rfmcsFrequency,
 }
 
 $("#destinationText").val("")
@@ -39,16 +39,18 @@ if (rfmcsDestination == "" || rfmcsName == "" || rfmcsStart < 100 || rfmcsFreque
 }
 else {
     console.log("Pushes")
-database.ref().push(newCarriage)
+database.ref("carriages/").push(newCarriage)
 }
 })
 
-database.ref().on("child_added",function(childSnapshot){
+function table(){
+database.ref("carriages/").on("child_added",function (childSnapshot){
 
     var destinaton = childSnapshot.val().destinaton
     var name = childSnapshot.val().name
     var start = childSnapshot.val().start
     var frequency = childSnapshot.val().frequency
+    
 
     var firstRunTime = moment(start, "hh:mm").subtract(1, "years")
 
@@ -60,7 +62,7 @@ database.ref().on("child_added",function(childSnapshot){
 
     var nextTrain = moment().add(minutesUntillNext, "minutes")
 
-    
+
     var newCarriage = $("<tr>").append(
         $("<td>").text(destinaton),
         $("<td>").text(name),
@@ -72,3 +74,29 @@ database.ref().on("child_added",function(childSnapshot){
     $("#coreTable > tbody").append(newCarriage)
 
 })  
+}
+
+var time = ""
+function updateTime(){
+    time = moment().format("hh:mm:ss")
+    $("#currentTime").html("Current time: " + time)
+}
+
+updateTime()
+setInterval(function(){updateTime();}, 1000)
+
+var minute = moment().minute()
+
+function checkTime(){
+var updatedTime = moment(time, "HH:mm:ss").minute()
+
+if(minute < updatedTime){
+    $("#coreTable > tbody").empty()
+    table()
+    minute = moment().minute()
+    }
+}
+
+setInterval(function(){checkTime();}, 1000)
+
+table()

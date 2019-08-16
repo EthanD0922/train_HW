@@ -32,39 +32,47 @@
         </div>
     </div>
 
-    <table class="table table-striped" id="coreTable">
-        <thead class=thead-light>
-            <tr>
-                <th scope="col">Carriage Destination</th>
-                <th scope="col">Carriage Name</th>
-                <th scope="col">Frquency of Arival (minutes)</th>
-                <th scope="col">Next Arrival</th>
-                <th scope="col">Minutes Away</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+    <div class="container">
+        <h1 id="currentTime"></h1>
+    </div>
 
-    <form>
-        <div class="form-group">
-            <label for="destinationText">Carriage Destination</label>
-            <input class="form-control" type="text" placeholder="Destination" id="destinationText">
-        </div>
-        <div class="form-group">
-            <label for="nameText">Carriage's Name</label>
-            <input class="form-control" type="text" placeholder="Name" id="nameText">
-        </div>
-        <div class="form-group">
-            <label for="firstCarriageText">First Carriage Time (HH:MM - military time)</label>
-            <input class="form-control" type="text" placeholder="00:00" id="firstCarriageText">
-        </div>
-        <div class="form-group">
-            <label for="minutesText">Frequency in Minutes</label>
-            <input class="form-control" type="text" placeholder="Minutes" id="minutesText">
-        </div>
-        <button type="submit" class="btn btn-primary" id="coreSubmit">Submit</button>
-    </form>
+    <div class="container">
+        <table class="table table-striped" id="coreTable">
+            <thead class=thead-light>
+                <tr>
+                    <th scope="col">Carriage Destination</th>
+                    <th scope="col">Carriage Name</th>
+                    <th scope="col">Frquency of Arival (minutes)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="destinationText">Carriage Destination</label>
+                <input class="form-control" type="text" placeholder="Destination" id="destinationText">
+            </div>
+            <div class="form-group">
+                <label for="nameText">Carriage's Name</label>
+                <input class="form-control" type="text" placeholder="Name" id="nameText">
+            </div>
+            <div class="form-group">
+                <label for="firstCarriageText">First Carriage Time (HH:MM - military time)</label>
+                <input class="form-control" type="text" placeholder="00:00" id="firstCarriageText">
+            </div>
+            <div class="form-group">
+                <label for="minutesText">Frequency in Minutes</label>
+                <input class="form-control" type="text" placeholder="Minutes" id="minutesText">
+            </div>
+            <button type="submit" class="btn btn-primary" id="coreSubmit">Submit</button>
+        </form>
+    </div>
     
   <!-- Script -->
   <script src="assets/app.js"></script>
