@@ -1,0 +1,16 @@
+body{
+    background-image: url(images/background.jpg);
+    background-size: 100%;
+}
+
+.container{
+    color: white;
+}
+
+.display-4, p{
+    color: black;
+}
+
+.jumbotron {
+    background-color: brown ;
+}
